@@ -1,0 +1,296 @@
+@charset "UTF-8";
+@import './theme.scss';
+
+//地图marker弹窗
+.c-map-info-window {
+  color: $black;
+  font-size: 14px;
+
+  .c-info-window-text {
+    margin: 10px 8px
+  }
+}
+
+// 高德地图默认样式---弹窗的关闭按钮
+.amap-info-close {
+  right: 5px !important;
+}
+// 高德地图默认样式---控制条
+.amap-scalecontrol {
+  left: 10px !important;
+  bottom: 10px !important;
+}
+.amap-touch-toolbar {
+  left: 0px !important;
+  top: 10px !important;
+  .amap-zoomcontrol {
+    top:  0px;
+    bottom: auto;
+  }
+}
+
+// 地图重新初始化点位置
+.c-map-reset-position {
+  position: absolute;
+  left: 11px;
+  top: 115px;
+  z-index: 3;
+  width: 36px;
+  height: 36px;
+  cursor: pointer;
+  background: url(../images/map/position.png) no-repeat center center #f4f4f4;
+  background-size: 80% 80%;
+  border-radius: 4px;
+  overflow: hidden;
+  box-shadow: 1px 1px 10px 0 #ccc;
+  &.ol-map-reset-position {
+    top: 70px;
+    width: 22px;
+    height: 22px;
+    background: none;
+    box-shadow: none;
+    background-color: hsla(0,0%,100%,.4);
+    padding: 2px;
+    &:after {
+      content: '';
+      position: absolute;
+      left: 2px;
+      top: 2px;
+      right: 2px;
+      bottom: 2px;
+      border-radius: 4px;
+      overflow: hidden;
+      background: url(../images/map/position-ol.png) no-repeat center center #56778f;
+      background-size: 80% 80%;
+    }
+  }
+}
+
+//大地图
+.c-map-big-wrapper {
+  position: relative;
+  height: 320px;
+  z-index: 100;
+  background-color: $mapBgColor;
+  color: #fff;
+  transition: height .3s ease-out;
+
+  &.c-map-off {
+    height: 400px;
+  }
+
+  &.c-map-on {
+    height: 650px;
+  }
+}
+
+// 地图缩放按钮
+.c-map-scale-btn {
+  position: absolute;
+  right: 10px;
+  bottom: 10px;
+  z-index: 1;
+  width: 35px;
+  height: 35px;
+  background-size: 100% 100%;
+  cursor: pointer;
+
+  &.c-map-scale-on {
+    background-image: url('../images/map/scale-on-arrow.png');
+  }
+
+  &.c-map-scale-off {
+    background-image: url('../images/map/scale-off-arrow.png');
+  }
+}
+
+.c-map-wrapper {
+  position: absolute;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  width: 34%;
+  z-index: 100;
+  background-color: $mapBgColor;
+  transition: width .3s ease-out;
+}
+//地图视频
+.c-map-video-wrapper {
+  position: relative;
+
+  // 视频16：9
+  .c-video-wrapper {
+    position: relative;
+    width: 66%;
+    padding-bottom: 37.125%;
+    background-color: $black;
+  }
+}
+
+.c-map-container {
+  width: 100%;
+  height: 100%;
+}
+
+.c-flex {
+  .c-video-wrapper {
+    width: 100%;
+    padding-bottom: 56.25%;
+  }
+
+  .c-map-wrapper {
+    width: 0;
+  }
+
+  .c-map-change-max {
+    width: 40% !important;
+  }
+}
+
+.c-map-change-max {
+  width: 100% !important;
+
+  .c-icon-map-info {
+    left: auto !important;
+    width: 560px;
+  }
+}
+
+// 小地图里的弹层信息框
+.c-map-info {
+  position: absolute;
+  z-index: 1;
+  right: 10px;
+  top: 10px;
+  font-size: 14px;
+  line-height: 36px;
+  color: #fff;
+
+  .c-map-info-list {
+    min-width: 280px;
+    position: relative;
+    width: 100%;
+    height: 36px;
+    box-sizing: border-box;
+    background: rgba(0, 0, 0, .4);
+    padding: 0 10px;
+    white-space: nowrap;
+  }
+
+  &.c-icon-map-info {
+    left: 10px;
+    right: 10px;
+    top: 10px;
+
+    // width: auto;
+    .c-map-info-list {
+      float: left;
+      width: 50%;
+      padding: 0 0 0 50px;
+
+      &:before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 10px;
+        bottom: 0;
+        width: 36px;
+        background-repeat: no-repeat;
+        background-position: center center;
+      }
+
+      &.speed {
+        &:before {
+          background-image: url('../images/map/speed.png');
+          background-size: 26px 22px;
+        }
+      }
+
+      &.angle {
+        &:before {
+          background-image: url('../images/map/angle.png');
+          background-size: 25px 25px;
+        }
+      }
+
+      &.lonlat {
+        &:before {
+          background-image: url('../images/map/lonlat.png');
+          background-size: 26px 26px;
+        }
+      }
+
+      &.time {
+        &:before {
+          background-image: url('../images/map/time.png');
+          background-size: 26px 26px;
+        }
+      }
+    }
+  }
+}
+
+// 大地图里的弹层信息框
+.c-map-view-info {
+  position: absolute;
+  z-index: 1;
+  right: 10px;
+  top: 10px;
+  padding: 10px;
+  color: #fff;
+  line-height: 20px;
+  background: rgba(0, 0, 0, .4);
+
+  .list {
+    position: relative;
+    padding: 10px 0 10px 18px;
+
+    &:before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 16px;
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background-color: #f59307;
+    }
+
+    .name {
+      font-size: 14px;
+      display: block;
+      height: 20px;
+    }
+
+    .value {
+      margin-top: 8px;
+      font-size: 16px;
+      display: block;
+      height: 20px;
+    }
+  }
+}
+
+
+//地图按钮
+.c-map-btn {
+  position: absolute;
+  top: 50%;
+  left: -15px;
+  width: 15px;
+  height: 120px;
+  margin-top: -60px;
+  z-index: 1;
+  cursor: pointer;
+  background-size: 100% 100%;
+
+  &.c-map-btn-left {
+    left: -15px;
+    background-image: url('../images/map/left-bar.png')
+  }
+
+  &.c-map-btn-right {
+    left: 0;
+    background-image: url('../images/map/right-bar.png')
+  }
+}
