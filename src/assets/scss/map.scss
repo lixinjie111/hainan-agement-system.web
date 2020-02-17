@@ -28,6 +28,11 @@
     bottom: auto;
   }
 }
+.amap-logo {
+  img {
+    display: none !important;
+  }
+}
 
 // 地图重新初始化点位置
 .c-map-reset-position {
