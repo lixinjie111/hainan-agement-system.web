@@ -6,6 +6,9 @@ window.config = {
 
 	version: "1.0"       // 版本号
 };
+window.scriptJs = {
+	gaodeMapUrl: "https://webapi.amap.com/maps?v=1.4.14&key=8bf04484a44d846096c9ab84730e88b8&plugin=ElasticMarker,AMap.Geocoder,AMap.ToolBar,AMap.Scale"
+};
 //地图额外配置项添加
 window.mapOption = {
 	center: [121.551976, 31.276054],	//上海-高德地图坐标点

@@ -127,11 +127,11 @@ export default {
         },
         loginFunc(params) {
             this.goLogin(params).then(res => {
-                this.loading = false;
                 if(res.status == 200) {
                     localStorage.setItem("yk-token",JSON.stringify({data:JSON.parse(res.data).token,"time":new Date().getTime()}));
                     this.$router.push({ path: '/' });
                 }else {
+                    this.loading = false;
                      if(res.status == -200){
                         if(res.data.errorCount) {
                             if(res.data.errorCount>=5){
